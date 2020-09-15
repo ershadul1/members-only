@@ -14,4 +14,9 @@
  *= require_self
  */
 
- @import 'bulma'
+ @import 'bulma';
+
+.is-medium {
+  background-color: orange; 
+  color: white;
+ }
