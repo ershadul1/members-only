@@ -1,20 +1,11 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= simple_form_for(@post) do |f|%>
+  <%= f.error_notification %>
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="field">
+    <div class="control">
+      <%= f.input :body, label: "Embarass someone", input_html: { class: "textarea "}, wrapper: false, label_html: { class: "label "}, placeholder: "Compose a new embarrasment...", autofocus: true%>
     </div>
-  <% end %>
-    <div class="actions">
-    <%= form.text_area :body, size: "50x10", placeholder: "Write your embarassing post here..." %>
   </div>
+  <%= f.button :submit, class: "button is-info"%>
+<%end%>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
