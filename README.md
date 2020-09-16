@@ -1,5 +1,7 @@
 # Members Only
 
+![Linters](https://github.com/ershadul1/members-only/workflows/Linters/badge.svg)
+
 ## Project Description
 
 This project demonstrates the use of devise gem to handle user authentications in Ruby on Rails.
