@@ -4,8 +4,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    current_user.user_status = current_user.posts.count > 2 ?  'active' : 'idle'
-    current_user.save
+    if user_signed_in?
+      current_user.user_status = current_user.posts.count > 2 ?  'active' : 'idle'
+      current_user.save
+    end
     @posts = Post.all
   end
 
@@ -30,7 +32,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -45,7 +47,7 @@ class PostsController < ApplicationController
     if current_user == @post.user
       respond_to do |format|
         if @post.update(post_params)
-          format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+          format.html { redirect_to root_path, notice: 'Post was successfully updated.' }
           format.json { render :show, status: :ok, location: @post }
         else
           format.html { render :edit }
