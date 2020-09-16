@@ -14,13 +14,13 @@
  *= require_self
  */
 
- @import 'bulma';
+@import 'bulma';
 
 .is-medium {
-  background-color: orange; 
+  background-color: orange;
   color: white;
- }
+}
 
- .notification:not(:last-child) {
+.notification:not(:last-child) {
   margin-bottom: 0;
 }
