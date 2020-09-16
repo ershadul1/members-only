@@ -2,7 +2,8 @@
   <% if user_signed_in? %>
   <article class="media box">
     <div class="media-content">
-     
+      <small>*Create more than 2 posts to get active user status*</small>
+      <%= render 'posts/form'%>
     </div>
   </article>
   <% end %>
@@ -14,8 +15,8 @@
       <div class="media-content">
         <div class="content">
           <% if user_signed_in? %>
-          <strong><%= post.user.name %></strong><br/>
-          <small>status: <%= post.user.user_status %></small><br/>
+            <strong><%= post.user.name %></strong><br/>
+            <small>status: <%= post.user.user_status %></small><br/>
           <% end %>
           <p><%= post.body %></p> 
           
