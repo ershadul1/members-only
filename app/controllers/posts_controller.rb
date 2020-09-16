@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    current_user.user_status = current_user.posts.count > 2 ?  'active' : 'idle'
+    current_user.save
     @posts = Post.all
   end
 
