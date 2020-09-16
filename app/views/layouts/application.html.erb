@@ -7,12 +7,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://use.fontawesome.com/a01901110d.js"></script>
   </head>
 
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <% if user_signed_in? %>
+  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %><br>
+<% else %>
+  <%= link_to 'Sign In', new_user_session_path %><br>
+  <%= link_to 'Sign Up', new_user_registration_path %><br>
+<% end %>
+<%= link_to 'New Post', new_post_path %>
     <%= yield %>
   </body>
 </html>
