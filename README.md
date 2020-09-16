@@ -42,7 +42,7 @@ The user interface of this project was inspired by [Andy Leverenz](https://githu
 
 ## Live Demo
 
-- Coming Soon!
+- [Members only](https://serene-lowlands-31361.herokuapp.com/)
 
 ## Contributions
 
