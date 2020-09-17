@@ -29,11 +29,13 @@ The user interface of this project was inspired by [Andy Leverenz](https://githu
 ### Prerequisites
 1. You should have ruby installed.(This project was tested on version `2.7.1`)
 1. You should have rails installed.(This project was tested on version `5.2.4.3`)
+1. You should have bundler installed.(This project was tested with Bundler version `2.1.4`)
 
    
 ### Steps to follow
 1. Clone the repository to your local machine using `git clone git@github.com:ershadul1/members-only.git`
 1. On your local machine, navigate to the micro reddit folder using `cd members-only` in your terminal
+1. Install all the gems for the project by running `bundle` in your terminal
 1. Migrate the database using this command
 `bin/rake db:migrate`
 1. Start the server by using this command.
