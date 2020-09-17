@@ -1,0 +1,19 @@
+<div class="column is-half">
+
+  <%= show_only_to_user( render 'posts/form')%>
+
+  <% @posts.each do |post| %>
+    <div class="box">
+      <article class="media">
+
+        <div class="media-content">
+          <div class="content">
+            <strong><%= show_only_to_user( post_name(post)) %></strong><br/>
+            <small> <%= show_only_to_user("status: #{post_user_status(post)}") %></small><br/>
+            <p><%= post.body %></p>   
+          </div>
+        </div>
+      </article>
+    </div>
+  <% end %>
+</div>
