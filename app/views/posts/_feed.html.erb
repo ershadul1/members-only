@@ -1,43 +1,19 @@
 <div class="column is-half">
-  <% if user_signed_in? %>
-  <article class="media box">
-    <div class="media-content">
-      <small>*Create more than 2 posts to get active user status*</small>
-      <%= render 'posts/form'%>
+
+  <%= show_only_to_user( render 'posts/form')%>
+
+  <% @posts.each do |post| %>
+    <div class="box">
+      <article class="media">
+
+        <div class="media-content">
+          <div class="content">
+            <strong><%= show_only_to_user( post_name(post)) %></strong><br/>
+            <small> <%= show_only_to_user("status: #{post_user_status(post)}") %></small><br/>
+            <p><%= post.body %></p>   
+          </div>
+        </div>
+      </article>
     </div>
-  </article>
   <% end %>
-
- <% @posts.each do |post| %>
-  <div class="box">
-    <article class="media">
-
-      <div class="media-content">
-        <div class="content">
-          <% if user_signed_in? %>
-            <strong><%= post.user.name %></strong><br/>
-            <small>status: <%= post.user.user_status %></small><br/>
-          <% end %>
-          <p><%= post.body %></p> 
-          
-        </div>
-      </div>
-      <% if user_signed_in? and current_user == post.user %>
-      <nav class="level">
-        <div class="level-left is-mobile">
-          <%= link_to post, class: "level-item" do %>
-          <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>  
-          <% end %>
-          <%= link_to edit_post_path(post), class: "level-item" do %>
-            <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-          <% end %>
-          <%= link_to post, method: :delete, data: { confirm: "Are you really want to delete this tweeet?" } do %>
-            <span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-          <% end %>
-        </div>
-      </nav>
-      <% end %>
-    </article>
-  </div>
- <% end %>
- </div>
+</div>
